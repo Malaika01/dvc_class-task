@@ -1,74 +1,22 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.utils import resample
-from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, recall_score , classification_report
-from sklearn.linear_model import LogisticRegression
-
-
-# In[3]:
-
-
-df =pd.read_csv('creditcard.csv')
-
-
-# In[4]:
-
-
+import pandas as pd # 
+import os
+        
+df=pd.read_csv('gender_classification.csv')
 df.head()
 
+Y=df['gender']
+X=df.drop(['gender'],axis=1)
 
-# In[17]:
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=0.2)
 
+from sklearn.preprocessing import LabelEncoder
+lb = LabelEncoder()
+y_train = lb.fit_transform(y_train)
+y_test=lb.fit_transform(y_test)
 
-x = df.drop("Class" , axis = 1)
-y = df['Class']
-
-
-# In[18]:
-
-
-from imblearn.over_sampling import SMOTE
-
-# setting up testing and training sets
-
-sm = SMOTE(sampling_strategy='minority')
-x_sm ,y_sm = sm.fit_resample(x, y)
-
-
-# In[19]:
-
-
-lr = LogisticRegression(C=10,max_iter=500)
-
-
-# In[21]:
-
-
-x_train, x_test, y_train, y_test = train_test_split(x_sm ,y_sm ,test_size=0.20, random_state=27)
-
-
-# In[23]:
-
-
-lr.fit(x_train, y_train)
-
-
-# In[24]:
-
-
-lr.score(x_train, y_train)
-
-
-# In[ ]:
-
-
-
+from sklearn.linear_model import LogisticRegression
+model2=LogisticRegression()
+model2.fit(X_train,y_train)
+print(model2.score(X_test,y_test))
