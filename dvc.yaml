@@ -1,0 +1,11 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - train.py
+    - creditcard.csv
+    outs:
+    - by_region.png
+    metrics:
+    - metrics.json:
+        cache: false
