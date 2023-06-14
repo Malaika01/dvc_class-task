@@ -24,4 +24,4 @@ jobs:
       - name: Initialize DVC pipeline
         run: dvc init -f
       - name: Run DVC pipeline
-        run: dvc repro  dvc_class-task/gender_classification.csv.dvc
+        run: dvc repro gender_classification.csv.dvc
