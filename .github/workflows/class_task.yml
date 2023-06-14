@@ -1,19 +1,25 @@
-name: DVC Tracking with Github Actions
-on: [push]
+name: DVC Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  run:
-    permissions: write-all
+  run_dvc_pipeline:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Running_updates
-        env: 
-          GH_TOKEN: ${{ github.token }}
-          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
-        run: |
-          make install 
-          dvc repro
-          git fetch --prune
-          dvc metrics diff --show-md master > report.md
-          gh pr comment ${{github.event.pull_request.number}} -F report.md
-          
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: pip install dvc
+
+      - name: Run DVC pipeline
+        run: dvc repro
