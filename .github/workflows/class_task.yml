@@ -21,5 +21,7 @@ jobs:
       - name: Install dependencies
         run: pip install dvc
 
-      - name: Run DVC pipeline
+      - name: Initialize DVC pipeline
         run: dvc init -f
+      - name: Run DVC pipeline
+        run: dvc repro gender_classification.csv.dvc
