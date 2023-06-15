@@ -23,13 +23,18 @@ jobs:
 
       - name: Initialize DVC pipeline
         run: dvc init -f
-      - name: Add to dvc
-        run: |
-             dvc remote add my_remote gdrive://18PMEN6pcC_eZZpYXFK2GiPRNoafDM4ZP
-             git config --global user.email "waheedmalaika01@gmail.com"
-             git config --global user.name "Malaika01"
-             git rm -r --cached 'gender_classification.txt'
-             git commit -m "Stop tracking gender_classification.txt"
-             dvc add gender_classification.txt
 
-        
+#       - name: Add to dvc
+#         run: |
+#           dvc remote add my_remote gdrive://18PMEN6pcC_eZZpYXFK2GiPRNoafDM4ZP
+#           git config --global user.email "waheedmalaika01@gmail.com"
+#           git config --global user.name "Malaika01"
+#           git rm -r --cached 'gender_classification.txt'
+#           git commit -m "Stop tracking gender_classification.txt"
+#           dvc add gender_classification.txt
+
+      - name: Pull data and dependencies
+        run: dvc pull
+
+      - name: Run DVC pipeline
+        run: dvc repro gender_classification.csv.dvc
