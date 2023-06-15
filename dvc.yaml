@@ -4,7 +4,7 @@ stages:
     deps:
       # - train.py
       - gender_classification.txt
-    # outs:
-    #- by_region.png
-    # metrics:
-    #   - metrics.json
+    outs:
+    - by_region.png
+    metrics:
+      - metrics.json
