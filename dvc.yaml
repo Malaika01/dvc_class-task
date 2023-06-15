@@ -2,9 +2,9 @@ stages:
   train:
     cmd: python train.py
     deps:
-      - train.py
-      - creditcard.csv
-    outs:
-      - by_region.png
+      # - train.py
+      - gdrive://18PMEN6pcC_eZZpYXFK2GiPRNoafDM4ZP/gender_classification.csv
+    # outs:
+    #   - by_region.png
     metrics:
       - metrics.json
