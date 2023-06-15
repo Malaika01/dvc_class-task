@@ -3,8 +3,8 @@ stages:
     cmd: python train.py
     deps:
       # - train.py
-      - gdrive://18PMEN6pcC_eZZpYXFK2GiPRNoafDM4ZP/gender_classification.csv
+      - gdrive://18PMEN6pcC_eZZpYXFK2GiPRNoafDM4ZP/gender_classification.txt
     # outs:
-    #   - by_region.png
+    #- by_region.png
     metrics:
       - metrics.json
