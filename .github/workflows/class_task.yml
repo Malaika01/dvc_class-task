@@ -25,5 +25,6 @@ jobs:
         run: dvc init -f
       - name: Add to dvc
         run: |
-              dvc remote add -d https://drive.google.com/drive/u/1/folders/17qkHKj1qKIc3cG5UA1AiPgWdp4rJdXTp
+             dvc remote add my_remote gdrive://18PMEN6pcC_eZZpYXFK2GiPRNoafDM4ZP
+
         
