@@ -26,6 +26,8 @@ jobs:
       - name: Add to dvc
         run: |
              dvc remote add my_remote gdrive://18PMEN6pcC_eZZpYXFK2GiPRNoafDM4ZP
+             git rm -r --cached 'gender_classification.txt'
+             git commit -m "Stop tracking gender_classification.txt"
              dvc add gender_classification.txt
 
         
