@@ -6,5 +6,5 @@ stages:
       - gender_classification.txt
     # outs:
     #- by_region.png
-    metrics:
-      - metrics.json
+    # metrics:
+    #   - metrics.json
