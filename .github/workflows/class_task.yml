@@ -41,5 +41,5 @@ jobs:
 #       - name: Pull data and dependencies
 #         run: dvc pull
 
-      - name: Run DVC pipeline
-        run: dvc repro gender_classification.csv.dvc
+#       - name: Run DVC pipeline
+#         run: dvc repro gender_classification.csv.dvc
