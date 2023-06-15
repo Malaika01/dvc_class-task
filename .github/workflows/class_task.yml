@@ -19,8 +19,10 @@ jobs:
           python-version: 3.9
 
       - name: Install dependencies
-        run: pip install dvc
-
+        run: |
+              pip install dvc
+              pip install dvc_gdrive 
+            
       - name: Initialize DVC pipeline
         run: dvc init -f
 
