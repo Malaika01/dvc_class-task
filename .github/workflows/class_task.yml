@@ -38,8 +38,8 @@ jobs:
         run: dvc remote default my_remote
 
     
-#       - name: Pull data and dependencies
-#         run: dvc pull
+      - name: Pull data and dependencies
+        run: dvc pull
 
 #       - name: Run DVC pipeline
 #         run: dvc repro gender_classification.csv.dvc
