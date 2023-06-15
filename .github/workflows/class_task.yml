@@ -23,5 +23,8 @@ jobs:
 
       - name: Initialize DVC pipeline
         run: dvc init -f
-      - name: Run DVC pipeline
-        run: dvc repro gender_classification.csv.dvc
+      - name: Add to dvc
+        run: |
+              dvc init --no-scm
+              dvc remote add -d https://drive.google.com/drive/u/1/folders/17qkHKj1qKIc3cG5UA1AiPgWdp4rJdXTp
+        
